@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style4.css">
+</head>
+<body>
+
+  <main class="calculator" aria-label="Calculator">
+
+    <div class="screen">
+      <div class="screen__expression" id="expression" aria-hidden="true">&nbsp;</div>
+      <div class="screen__result" id="result">0</div>
+    </div>
+
+    <div class="keys">
+      <button class="key key--func" data-action="clear">AC</button>
+      <button class="key key--func" data-action="backspace">DEL</button>
+      <button class="key key--func" data-action="percent">%</button>
+      <button class="key key--op" data-action="operator" data-value="÷">÷</button>
+
+      <button class="key" data-action="number" data-value="7">7</button>
+      <button class="key" data-action="number" data-value="8">8</button>
+      <button class="key" data-action="number" data-value="9">9</button>
+      <button class="key key--op" data-action="operator" data-value="×">×</button>
+
+      <button class="key" data-action="number" data-value="4">4</button>
+      <button class="key" data-action="number" data-value="5">5</button>
+      <button class="key" data-action="number" data-value="6">6</button>
+      <button class="key key--op" data-action="operator" data-value="−">−</button>
+
+      <button class="key" data-action="number" data-value="1">1</button>
+      <button class="key" data-action="number" data-value="2">2</button>
+      <button class="key" data-action="number" data-value="3">3</button>
+      <button class="key key--op" data-action="operator" data-value="+">+</button>
+
+      <button class="key key--wide" data-action="number" data-value="0">0</button>
+      <button class="key" data-action="decimal">.</button>
+      <button class="key key--equals" data-action="equals">=</button>
+    </div>
+
+  </main>
+
+  <script src="logics.js"></script>
+</body>
+</html>
