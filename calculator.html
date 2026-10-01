@@ -1,51 +1,90 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calculator</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style4.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+
+  <style>
+    input[type="button"] {
+      width: 60px;
+      height: 40px;
+    }
+
+    input[type="text"] {
+      width: 250px;
+      height: 35px;
+    }
+
+    table {
+      margin: 50px auto;
+    }
+  </style>
+
 </head>
+
 <body>
 
-  <main class="calculator" aria-label="Calculator">
+  <script>
+    function pick(val) {
+      document.getElementById("a").value += val;
+    }
 
-    <div class="screen">
-      <div class="screen__expression" id="expression" aria-hidden="true">&nbsp;</div>
-      <div class="screen__result" id="result">0</div>
-    </div>
+    function clr() {
+      document.getElementById("a").value = "";
+    }
 
-    <div class="keys">
-      <button class="key key--func" data-action="clear">AC</button>
-      <button class="key key--func" data-action="backspace">DEL</button>
-      <button class="key key--func" data-action="percent">%</button>
-      <button class="key key--op" data-action="operator" data-value="÷">÷</button>
+    function solve() {
+      var x = document.getElementById("a").value;
+      var y = eval(x);
+      document.getElementById("a").value = y;
+    }
+  </script>
 
-      <button class="key" data-action="number" data-value="7">7</button>
-      <button class="key" data-action="number" data-value="8">8</button>
-      <button class="key" data-action="number" data-value="9">9</button>
-      <button class="key key--op" data-action="operator" data-value="×">×</button>
+  <table border="1">
 
-      <button class="key" data-action="number" data-value="4">4</button>
-      <button class="key" data-action="number" data-value="5">5</button>
-      <button class="key" data-action="number" data-value="6">6</button>
-      <button class="key key--op" data-action="operator" data-value="−">−</button>
+```
+<tr>
+  <th colspan="3">
+    <input type="text" id="a">
+  </th>
 
-      <button class="key" data-action="number" data-value="1">1</button>
-      <button class="key" data-action="number" data-value="2">2</button>
-      <button class="key" data-action="number" data-value="3">3</button>
-      <button class="key key--op" data-action="operator" data-value="+">+</button>
+  <td>
+    <input type="button" value="C" onclick="clr()">
+  </td>
+</tr>
 
-      <button class="key key--wide" data-action="number" data-value="0">0</button>
-      <button class="key" data-action="decimal">.</button>
-      <button class="key key--equals" data-action="equals">=</button>
-    </div>
+<tr>
+  <td><input type="button" value="1" onclick="pick(1)"></td>
+  <td><input type="button" value="2" onclick="pick(2)"></td>
+  <td><input type="button" value="3" onclick="pick(3)"></td>
+  <td><input type="button" value="/" onclick="pick('/')"></td>
+</tr>
 
-  </main>
+<tr>
+  <td><input type="button" value="4" onclick="pick(4)"></td>
+  <td><input type="button" value="5" onclick="pick(5)"></td>
+  <td><input type="button" value="6" onclick="pick(6)"></td>
+  <td><input type="button" value="*" onclick="pick('*')"></td>
+</tr>
 
-  <script src="logics.js"></script>
+<tr>
+  <td><input type="button" value="7" onclick="pick(7)"></td>
+  <td><input type="button" value="8" onclick="pick(8)"></td>
+  <td><input type="button" value="9" onclick="pick(9)"></td>
+  <td><input type="button" value="-" onclick="pick('-')"></td>
+</tr>
+
+<tr>
+  <td><input type="button" value="." onclick="pick('.')"></td>
+  <td><input type="button" value="0" onclick="pick(0)"></td>
+  <td><input type="button" value="=" onclick="solve()"></td>
+  <td><input type="button" value="+" onclick="pick('+')"></td>
+</tr>
+
+
+  </table>
+
 </body>
 </html>
